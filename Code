@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+class invalidAgeException{
+    public:
+    const char*message() const{
+        return"Age cannot be negative!";
+    }
+};
+int main(){
+    int age;
+    cout<<"Enter age: ";
+    cin>>age;
+    try{
+        if(age<0){
+            throw invalidAgeException();
+        }
+        cout<<"Valid age entered:"<<age;
+    }
+    catch(invalidAgeException e){
+        cout<<"Exception caught:"<<e.message();
+    }
+    return 0;
+
+}
